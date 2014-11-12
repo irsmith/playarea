@@ -30,6 +30,7 @@ public class PrintPaths {
 
 	}
 
+	// dfs traverse, using a map for "edge to" query cache
 	private static void dfs(Node n, Node fromNode) {
 		if (n == null) {
 			return;
@@ -42,6 +43,7 @@ public class PrintPaths {
 		dfs(n.right, n);
 	}
 
+	// query the edge to structure
 	List<Node> getPath(Node n) {
 		List<Node> r = new LinkedList<Node>();
 		Node cur = n;
