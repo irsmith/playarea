@@ -1,8 +1,10 @@
 package binaryTrees;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public  class BST {
+public  class IsBST {
 	public static class Node {
 		Node left;
 		Node right;
@@ -20,7 +22,7 @@ public  class BST {
 
 	Node root = null;
 
-	public BST(int[] a) {
+	public IsBST(int[] a) {
 		// if you want balanced, shuffle it
 		// Arrays.sort(a);
 		root = null;
@@ -30,16 +32,7 @@ public  class BST {
 		}
 	}
 
-	private int[] convertListToPrimitive(List<Integer> alist) {
-		int[] rv = new int[alist.size()];
-		// convert list to primitive array. Java has no built in to do this
-		for (int i = 0; i < alist.size(); i++) {
-			rv[i] = alist.get(i);
-		}
-		return rv;
-	}
-	
-	public BST(List<Integer> alist) {
+	public IsBST(List<Integer> alist) {
 	    root = null;
 		for (int i:alist) {
 			root = insert(i, root);
@@ -94,22 +87,53 @@ public  class BST {
 
 	public static void main(String[] args) {
 
-		int[] a = new int[] { 5, 3, 8, 2, 0, 5, 4, 4, 9, 10, 11, 12, 13, 14 };
-		BST bst = new BST(a);
+		List<Integer> a = Arrays.asList(5, 3, 8, 2, 0, 5, 4, 4, 9, 10, 11, 12, 13, 14 );
+		Collections.shuffle(a);
+		IsBST bst = new IsBST(a);
 		Node r = bst.getRoot();
 		System.out.println(bst);
 		System.out.println(bst.levelOrder());
-
-		// int[] a = new int[] {5,3,8,2,0,5,4,4};
-		// BST bst = new BST(a);
-		// Node r = bst.getRoot();
-		// System.out.println(bst);
-
 	}
 
 	private Node getRoot() {
 		return root;
 	}
 
+///**
+//14. isBST2() Solution (C/C++)
+//Binary Trees
+//Page: 17
+///*
+// Returns true if the given tree is a binary search tree
+// (efficient version).
+//*/
+//int isBST2(struct node* node) {
+//  return(isBSTUtil(node, INT_MIN, INT_MAX));
+//}
+///*
+// Returns true if the given tree is a BST and its
+// values are >= min and <= max.
+//*/
+//int isBSTUtil(struct node* node, int min, int max) {
+//  if (node==NULL) return(true);
+//  // false if this node violates the min/max constraint
+//  if (node->data<min || node->data>max) return(false);
+//  // otherwise check the subtrees recursively,
+//  // tightening the min or max constraint
+//  return
+//    isBSTUtil(node->left, min, node->data) &&
+//    isBSTUtil(node->right, node->data+1, max)
+//  );
+//}
+// */
+	boolean isBst(Node n) {
+	    return isBst(n, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	}
 
+	boolean isBst(Node n, int min, int max) {
+		
+		if (n==null) return true;
+		if (n.val > min || n.val <max) return false;
+		return isBst(n.left, min, n.val) && isBst(n.right, n.val, max);
+	}
 }

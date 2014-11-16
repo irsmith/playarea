@@ -1,4 +1,4 @@
-package BinaryTrees;
+package binaryTrees;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import BinaryTrees.Bst2.Node;
+import binaryTrees.Bst2.Node;
 
 /*
  Given a binary tree, print out all of its root-to-leaf

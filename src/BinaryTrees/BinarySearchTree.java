@@ -1,18 +1,18 @@
-package BinaryTrees;
+package binaryTrees;
 import java.util.Random;
 
 public class BinarySearchTree {
 
 	Random r;
-	static Node root;
+	static NodeSimple root;
 
-	class Node {
-		public Node(int v) {
+	class NodeSimple {
+		public NodeSimple(int v) {
 			key = v;
 		}
 
-		Node left;
-		Node right;
+		NodeSimple left;
+		NodeSimple right;
 		int sz = 1;
 		int key;
 
@@ -37,7 +37,7 @@ public class BinarySearchTree {
 
 	}
 
-	private String recprint(Node n) {
+	private String recprint(NodeSimple n) {
 		if (n == null) {
 			return "";
 		} else {
@@ -52,9 +52,9 @@ public class BinarySearchTree {
 
 	}
 
-	private Node add(int v, Node n) {
+	private NodeSimple add(int v, NodeSimple n) {
 		if (n == null) {
-			Node newn = new Node(v);
+			NodeSimple newn = new NodeSimple(v);
 			return newn;
 		} else if (r == null) {
 			if (v <= n.key) { // NO! compare input arg (prospective key) to THIS
@@ -79,11 +79,11 @@ public class BinarySearchTree {
 		return n;
 	}
 
-	public static boolean isBst(Node n) {
+	public static boolean isBst(NodeSimple n) {
 		return isBst(n, Integer.MIN_VALUE, Integer.MAX_VALUE);
 	}
 
-	private static boolean isBst(Node n, int min, int max) {
+	private static boolean isBst(NodeSimple n, int min, int max) {
 		if (n == null) {
 			return true;
 		}
