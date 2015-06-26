@@ -1,6 +1,6 @@
 package todo;
 
-import binaryTrees.Bst2;
+import binary_tree.Bst2;
 
 /**
  * 7. hasPathSum() Solution (C/C++) /* Given a tree and a sum, return true if

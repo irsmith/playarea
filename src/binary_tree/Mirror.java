@@ -1,6 +1,6 @@
-package binaryTrees;
+package binary_tree;
 
-import binaryTrees.Bst2.Node;
+import binary_tree.Bst2.Node;
 
 /**
  * /*

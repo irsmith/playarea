@@ -1,4 +1,4 @@
-package binaryTrees;
+package binary_tree;
 
 
 public class Nod  {
